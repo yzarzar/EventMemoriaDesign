@@ -14,17 +14,6 @@ CREATE TABLE
         user_id INT NOT NULL,
         title VARCHAR(100) NOT NULL,
         description TEXT,
-        visibility ENUM ('Private', 'Public') DEFAULT 'Public',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
-    );
-
-CREATE TABLE
-    Events (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        user_id INT NOT NULL,
-        title VARCHAR(100) NOT NULL,
-        description TEXT,
         location VARCHAR(255),
         event_date TIMESTAMP NOT NULL,
         start_time TIME NOT NULL,
@@ -32,6 +21,23 @@ CREATE TABLE
         visibility ENUM ('Private', 'Public') DEFAULT 'Public',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
+    );
+
+-- Event Categories (Many-to-Many with Events)
+CREATE TABLE
+    Categories (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(50) UNIQUE NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+CREATE TABLE
+    EventCategory (
+        event_id INT NOT NULL,
+        category_id INT NOT NULL,
+        PRIMARY KEY (event_id, category_id),
+        FOREIGN KEY (event_id) REFERENCES Events (id) ON DELETE CASCADE,
+        FOREIGN KEY (category_id) REFERENCES Categories (id) ON DELETE CASCADE
     );
 
 CREATE TABLE
@@ -71,16 +77,4 @@ CREATE TABLE
         is_read BOOLEAN DEFAULT FALSE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE
-    );
-
-CREATE TABLE
-    Shares (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        event_id INT NOT NULL,
-        shared_by_user_id INT NOT NULL,
-        shared_with_user_id INT NOT NULL,
-        shared_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (event_id) REFERENCES Events (id) ON DELETE CASCADE,
-        FOREIGN KEY (shared_by_user_id) REFERENCES Users (id) ON DELETE CASCADE,
-        FOREIGN KEY (shared_with_user_id) REFERENCES Users (id) ON DELETE CASCADE
     );
