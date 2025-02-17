@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="9VeQLx92GUbBHlqtR_pE" name="Page-1">
-        <mxGraphModel dx="1984" dy="1104" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4000" pageHeight="2000" math="0" shadow="0">
+        <mxGraphModel dx="2066" dy="1420" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4000" pageHeight="2000" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -501,7 +501,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="117" value="UserEventStatus" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="1820" y="2229" width="180" height="150" as="geometry"/>
+                    <mxGeometry x="1814" y="2219" width="180" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="118" value="u" style="shape=tableRow;horizontal=0;startSize=1;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="117">
                     <mxGeometry y="30" width="180" height="30" as="geometry"/>
