@@ -1,15 +1,48 @@
-EventPost.tsx
-EventPostImage.tsx
-ReactionButton.tsx
-CommentModal.tsx
-CommentItem.tsx
-CommentInput.tsx
-Navbar.tsx
-CreateButton.tsx
-CreateCategoryModal.tsx
-TimelinePost.tsx
-HeroImage.tsx
-CategoryListModal.tsx
-CategoryCard.tsx
-CategoryCreateModal.tsx
-EventCreateModal.tsx
+**Database Relationships**
+
+**One-to-Many (1:M)**
+1. Users → Events (One User can create Many Events)
+2. Users → EventPosts (One User can create Many Event Posts)
+3. Users → UserEventStatus (One User can have Many Event Status records)
+4. Users → EventPostLikes (One User can like Many Event Posts)
+5. Users → EventPostComments (One User can comment on Many Event Posts)
+6. Users → EventPostReposts (One User can repost Many Event Posts)
+7. Users → Notifications (One User can receive Many Notifications)
+8. Events → EventPosts (One Event can have Many Posts)
+9. Events → UserEventStatus (One Event can have Many User Status records)
+10. Events → Media (One Event can have Many Media Files)
+11. Events → EventTagRelations (One Event can have Many Tags)
+12. Categories → Events (One Category can have Many Events)
+13. EventPosts → EventPostMedia (One Event Post can have Many Media Files)
+14. EventPosts → EventPostLikes (One Event Post can have Many Likes)
+15. EventPosts → EventPostComments (One Event Post can have Many Comments)
+16. EventPosts → EventPostReposts (One Event Post can have Many Reposts)
+17. EventPosts → EventPostTagRelations (One Event Post can have Many Tags)
+18. EventTags → EventTagRelations (One Tag can be linked to Many Events)
+19. EventPostTags → EventPostTagRelations (One Tag can be linked to Many Event Posts)
+
+**Many-to-One (M:1)**
+1. Events → Users (Many Events belong to One User)
+2. EventPosts → Users (Many Event Posts belong to One User)
+3. UserEventStatus → Users (Many Event Status records belong to One User)
+4. UserEventStatus → Events (Many Event Status records belong to One Event)
+5. EventPosts → Events (Many Posts belong to One Event)
+6. EventPosts → Users (Many Posts belong to One User)
+7. EventPostLikes → Users (Many Likes belong to One User)
+8. EventPostLikes → EventPosts (Many Likes belong to One Post)
+9. EventPostComments → Users (Many Comments belong to One User)
+10. EventPostComments → EventPosts (Many Comments belong to One Post)
+11. EventPostReposts → Users (Many Reposts belong to One User)
+12. EventPostReposts → EventPosts (Many Reposts belong to One Post)
+
+**Many-to-Many (M:M)**
+1. Users ↔ Users (Users can Follow Each Other)
+2. Users ↔ Events (Users can Express Interest in Events)
+3. Users ↔ EventPosts (Users can Like, Comment, and Repost Posts)
+4. Events ↔ Tags (Events can have Multiple Tags, and Tags can belong to Multiple Events)
+5. EventPosts ↔ Tags (Posts can have Multiple Tags, and Tags can belong to Multiple Posts)
+
+**One-to-One (1:1)**
+1. Events → Locations (One Event has One Location)
+2. Notifications → Users (One Notification is linked to One User)
+3. EventPostMedia → EventPosts (One Media File belongs to One Post)
